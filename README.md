@@ -1,6 +1,6 @@
 # Collaborative LaTeX Writing using Git and Github Actions
 
-[![CI](https://github.com/LKedward/latex-github-collab/actions/workflows/CI.yml/badge.svg)](https://github.com/LKedward/latex-github-collab/actions/workflows/CI.yml) [[__View Paper Preview__](https://github.com/LKedward/latex-github-collab/blob/previews/master/paper.pdf)]
+[![CI](https://github.com/vanderhe/latex-github-collab/actions/workflows/CI.yml/badge.svg)](https://github.com/vanderhe/latex-github-collab/actions/workflows/CI.yml) [[__View Paper Preview__](https://github.com/vanderhe/latex-github-collab/blob/previews/master/paper.pdf)]
 
 A Github repository template for writing LaTeX documents collaboratively with automatic rendering using Github actions.
 
@@ -10,7 +10,7 @@ A Github repository template for writing LaTeX documents collaboratively with au
 
 ## Compiling Locally
 
-Compiling locally is possible with any LaTeX distribution; the github actions [workflow](https://github.com/LKedward/latex-github-collab/blob/master/.github/workflows/CI.yml) (Ubuntu 20.04) uses the following packages (all installable via `apt`):
+Compiling locally is possible with any LaTeX distribution; the github actions [workflow](https://github.com/vanderhe/latex-github-collab/blob/master/.github/workflows/CI.yml) (Ubuntu 20.04) uses the following packages (all installable via `apt`):
 
 - `texlive-latex-recommended`
 - `texlive-latex-extra`

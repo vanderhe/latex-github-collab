@@ -14,7 +14,7 @@ on:
 env:
   APT_DEPS: texlive-latex-recommended texlive-latex-extra texlive-extra-utils latexdiff perl rubber
   REPO_URL: https://github.com/vanderhe/latex-github-collab
-  TEXTIDOTE_URL: https://github.com/sylvainhalle/textidote/releases/download/v0.8.2/textidote_0.8.2_all.deb
+  TEXTIDOTE_URL: https://github.com/sylvainhalle/textidote/releases/download/v0.8.3/textidote_0.8.3_all.deb
 
 jobs:
   SpellCheck:
@@ -22,7 +22,7 @@ jobs:
     if: "!contains(github.event.head_commit.message, 'skip-ci')"
     steps:
     - name: Checkout code
-      uses: actions/checkout@v2
+      uses: actions/checkout@v2.4.0
 
     - name: Install Ubuntu Dependencies
       run: |
@@ -38,7 +38,7 @@ jobs:
     if: "!contains(github.event.head_commit.message, 'skip-ci')"
     steps:
     - name: Checkout code
-      uses: actions/checkout@v2
+      uses: actions/checkout@v2.4.0
 
     - run: |
         git fetch --no-tags --prune --depth=1 origin +refs/heads/*:refs/remotes/origin/*
@@ -63,7 +63,7 @@ jobs:
       run: make diff
 
     - name: Checkout previews branch
-      uses: actions/checkout@v2
+      uses: actions/checkout@v2.4.0
       with:
         ref: previews
         path: previews
