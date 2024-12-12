@@ -10,7 +10,7 @@ A Github repository template for writing LaTeX documents collaboratively with au
 
 ## Compiling Locally
 
-Compiling locally is possible with any LaTeX distribution; the github actions [workflow](https://github.com/LKedward/latex-github-collab/blob/master/.github/workflows/CI.yml) (Ubuntu 20.04) uses the following packages (all installable via `apt`):
+Compiling locally is possible with any LaTeX distribution; the github actions [workflow](https://github.com/LKedward/latex-github-collab/blob/master/.github/workflows/CI.yml) (Ubuntu 22.04) uses the following packages (all installable via `apt`):
 
 - `texlive-latex-recommended`
 - `texlive-latex-extra`

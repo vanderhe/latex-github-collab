@@ -1,4 +1,4 @@
-# Laurence Kedward 2021
+# Laurence Kedward 2024
 # Licensed for use under the MIT license
 # (See LICENSE file)
 
@@ -14,7 +14,7 @@ on:
 env:
   APT_DEPS: texlive-latex-recommended texlive-latex-extra texlive-extra-utils latexdiff perl rubber
   REPO_URL: https://github.com/LKedward/latex-github-collab
-  TEXTIDOTE_URL: https://github.com/sylvainhalle/textidote/releases/download/v0.8.2/textidote_0.8.2_all.deb
+  TEXTIDOTE_URL: https://github.com/sylvainhalle/textidote/releases/download/v0.8.3/textidote_0.8.3_all.deb
 
 jobs:
   SpellCheck:
@@ -22,7 +22,7 @@ jobs:
     if: "!contains(github.event.head_commit.message, 'skip-ci')"
     steps:
     - name: Checkout code
-      uses: actions/checkout@v3
+      uses: actions/checkout@v4
 
     - name: Install Ubuntu Dependencies
       run: |
@@ -38,10 +38,9 @@ jobs:
     if: "!contains(github.event.head_commit.message, 'skip-ci')"
     steps:
     - name: Checkout code
-      uses: actions/checkout@v3
+      uses: actions/checkout@v4
 
-    - run: |
-        git fetch --no-tags --prune --depth=1 origin +refs/heads/*:refs/remotes/origin/*
+    - run: git fetch --no-tags --prune --depth=1 origin +refs/heads/*:refs/remotes/origin/*
 
     - name: Install Ubuntu Dependencies
       run: |
@@ -63,7 +62,7 @@ jobs:
       run: make diff
 
     - name: Checkout previews branch
-      uses: actions/checkout@v3
+      uses: actions/checkout@v4
       with:
         ref: previews
         path: previews
@@ -93,14 +92,14 @@ jobs:
     - name: Get Time
       if: github.event_name == 'pull_request'
       id: time
-      uses: nanzm/get-time-action@v1.1
+      uses: nanzm/get-time-action@v2.0
       with:
-        timeZone: 0
+        timeZone: UTC+0
         format: 'DD-MM-YYYY HH:mm:ss'
 
     - name: Find previous bot comment
       if: github.event_name == 'pull_request'
-      uses: peter-evans/find-comment@v2
+      uses: peter-evans/find-comment@v3
       id: fc
       with:
         issue-number: ${{ github.event.pull_request.number }}
@@ -109,7 +108,7 @@ jobs:
 
     - name: Create PR comment
       if: github.event_name == 'pull_request'
-      uses: peter-evans/create-or-update-comment@v2
+      uses: peter-evans/create-or-update-comment@v4
       with:
         comment-id: ${{ steps.fc.outputs.comment-id }}
         issue-number: ${{github.event.number}}
